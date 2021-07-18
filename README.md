@@ -1,1 +1,2 @@
 # CloudCrasher.github.io
+This repository is a personal project of a birthday surprise website. All rights reserved for any media on it, I own very little of the assets used. This project is only public for the intention of hosting it on my GitHub domain, however if for some reason you find yourself looking through it and want to use something or feel something is a breach of copyright, feel free to email me at nicholaskocurek1@gmail.com.
