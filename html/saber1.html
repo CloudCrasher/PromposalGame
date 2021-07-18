@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <title>Saber Route #0</title>
+
+        <script>
+            window.onload = function () 
+            {
+                $("#avatar").fadeIn(400);
+                $("#dialogueBox").fadeIn(1400, load());
+            }
+        </script>
+    </head>
+    <body id="saberBackground">
+        <div class="centered">
+            <img id="avatar" src="../assets/saber.png" class="fade">
+        </div>
+
+        <p id="dialogueBox" class="fade"></p>
+
+        <div id="interactBox1" class="interactBox">
+            <img class="icon" src="../assets/sabericon.png">
+            <a href="saber1.html" class="iconText">Continue Saber Route</a>
+        </div>
+        <div id="interactBox2" class="interactBox">
+            <img class="icon" src="../assets/komachiicon.png">
+            <a href="komachi1.html" class="iconText">Start Komachi Route</a>
+        </div>
+        <div id="interactBox3" class="interactBox">
+            <img class="icon" src="../assets/acceleratoricon.png">
+            <a class="iconText, locked">Locked: Accelerator Route</a>
+        </div>
+
+        <script>
+           //Holds HTML code for Tooltip and Continue Arrow to be added to the end of dialogue
+           var continuescreen = "<p id=\"tooltip\">Press SPACE to continue<i id=\"continueArrow\" class=\"arrow down\"></i></p>";
+           //Holds each dialogue line
+           var msg = ["Happy birthday, young one. Avalon, and I, its King, sends you its highest regards in celebration. I'm grateful to announce you will have the chance to meet many fine legends today in the next few minutes, and I know we all wish for you to enjoy this day to its fullest. Once again, happy 18th!", "Where would you like to go first?"];
+           //Tracks which dialogue line to be displayed
+           var scene = 0;
+           //Tells when the last dialogue line is
+           var numOfScenes = 2;
+
+           //Loads text lines
+           function load() 
+           {
+              //Fail safe to make sure no scenes are skipped later
+              var newscene = true;
+
+              //Plays dialogue
+              playLines = setInterval(() => 
+              {
+                //Checks if current scene has more in msg
+                if(msg[scene].length != 0)
+                {
+                    //Gets next letter
+                    var letter = msg[scene].substring(0, 1);
+                    //Adds next letter
+                    document.getElementById("dialogueBox").innerHTML += letter;
+                    //Removes letter from queue
+                    msg[scene] = msg[scene].substring(1)
+                }
+                else
+                {
+                    //Quits line playing
+                    clearInterval(playLines);
+
+                    //Checks if last scene
+                    if(scene < numOfScenes-1)
+                    { 
+                        //Gives delay then shows the continue option
+                        delay(1500).then(() => {
+
+                            //Adds HTML for continue option
+                            document.getElementById("dialogueBox").innerHTML += continuescreen;
+
+                            //Blinks arrow to continue
+                            var blinkContinue = setInterval(function() {
+
+                                //Toggles arrow on and off
+                                $("#continueArrow").fadeToggle(50);
+
+                                //Checks for space press to continue
+                                $(window).keypress(function (e) 
+                                {
+                                    if (e.key === ' ' || e.key === 'Spacebar') 
+                                    {
+                                        e.preventDefault()
+                                        clearInterval(blinkContinue);
+
+                                        //Checks if it is time for a new scene or a new page
+                                        if(newscene)
+                                        {
+                                            //Reset dialogue
+                                            document.getElementById("dialogueBox").innerHTML = "";
+                                            //Next scene
+                                            scene++;
+                                            //Load scene
+                                            load();
+
+                                            //Makes sure the scene resets before changing again
+                                            newscene = false;
+                                        }
+                                    }
+                                })
+                            }, 1000);
+                        });
+                    }
+                    else
+                    {
+                        $("#interactBox1").fadeIn(1000);
+                        $("#interactBox2").fadeIn(1000);
+                        $("#interactBox3").fadeIn(1000);
+                    }
+                }
+              }, 25);
+           }
+
+           function delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+           }
+        </script>
+    </body>
+</html>
