@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="../main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <title>Saber Route #0</title>
+        <title>Komachi Route</title>
 
         <script>
             window.onload = function () 
@@ -14,7 +14,7 @@
             }
         </script>
     </head>
-    <body id="saberBackground">
+    <body id="komachiBackground">
         <div class="centered">
             <img id="avatar" src="../assets/komachi.png" class="fade">
         </div>
@@ -34,15 +34,19 @@
             <a href="accelerator.html" class="iconText">Start Accelerator Route</a>
         </div>
 
+        <img src="komachiPresent.png" id="komachiPresent" class="fade">
+
         <script>
            //Holds HTML code for Tooltip and Continue Arrow to be added to the end of dialogue
            var continuescreen = "<p id=\"tooltip\">Press SPACE to continue<i id=\"continueArrow\" class=\"arrow down\"></i></p>";
            //Holds each dialogue line
-           var msg = ["Happy birthday, young one. Avalon, and I, its King, sends you its highest regards in celebration. I'm grateful to announce you will have the chance to meet many fine legends today in the next few minutes, and I know we all wish for you to enjoy this day to its fullest. Once again, happy 18th!", "Where would you like to go first?"];
+           var msg = ["Hihi, Komachi here! I heard it is someone's birthday today (happy birthday!) and dropped by to do my part. Quite the benevolent soul I have~", "Komachi's gift to you is well", "Well it seems Komachi's work is done, and a great job she did! Where to next, Captain?!?"];
            //Tracks which dialogue line to be displayed
            var scene = 0;
            //Tells when the last dialogue line is
-           var numOfScenes = 2;
+           var numOfScenes = 3;
+
+           var presentScene = 1;
 
            //Loads text lines
            function load() 
@@ -53,6 +57,11 @@
               //Plays dialogue
               playLines = setInterval(() => 
               {
+                if(scene == presentScene)
+                {
+                    $("#komachiPresent").fadeIn(1000);
+                }
+
                 //Checks if current scene has more in msg
                 if(msg[scene].length != 0)
                 {
@@ -73,6 +82,11 @@
                     { 
                         //Gives delay then shows the continue option
                         delay(1500).then(() => {
+
+                            if(scene == presentScene)
+                            {
+                                $("#komachiPresent").fadeOut(1000);
+                            }
 
                             //Adds HTML for continue option
                             document.getElementById("dialogueBox").innerHTML += continuescreen;
