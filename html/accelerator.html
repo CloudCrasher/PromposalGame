@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <title>Accelerator Route</title>
+
+        <script>
+            window.onload = function () 
+            {
+                $("#avatar").fadeIn(400);
+                $("#dialogueBoxSpecial").fadeIn(4000, load());
+            }
+        </script>
+    </head>
+    <body id="acceleratorBackground">
+        <div class="centered">
+            <img id="avatar" src="../assets/accelerator.png" class="fade">
+        </div>
+
+        <p id="dialogueBoxSpecial" class="fade"></p>
+
+        <script>
+           //Holds HTML code for Tooltip and Continue Arrow to be added to the end of dialogue
+           var continuescreen = ["<p id=\"tooltip\">Press SPACE to ask him to clarify<i id=\"continueArrow\" class=\"arrow down\"></i></p>", "<p id=\"tooltip\">Press SPACE to continue<i id=\"continueArrow\" class=\"arrow down\"></i></p>", "<p id=\"tooltip\">Press SPACE to offer him cake and Pan-san<i id=\"continueArrow\" class=\"arrow down\"></i></p>", "<p id=\"tooltip\">Press SPACE to hand them over<i id=\"continueArrow\" class=\"arrow down\"></i></p>"];
+           //Holds each dialogue line
+           var msg = ["Hey you... I'm in a bit of a rush here. Someone I know is getting out of the hospital and is annoyingly expecting something from me.", "Huh? What's it to you? I guess as long as you're asking me outright, you probably aren't working with the city but...", "...it's a brat. A childish little brat. Someone who deserves to live the life of a brat but isn't able to. (You think for a second about what you can do)", "You want to give those things to me? What kind of convenient deus ex machina is this? Well... I guess I shouldn't turn down on her behalf.", "I don't like being in debt so, take this in return. (You receive some sort of gift certificate from Accelerator). I'm sure you can find a use for it. (Accelerator starts walking away) ...and one more thing... happy birthday."];
+           //Tracks which dialogue line to be displayed
+           var scene = 0;
+           //Tells when the last dialogue line is
+           var numOfScenes = 5;
+
+           //Loads text lines
+           function load() 
+           {
+              //Fail safe to make sure no scenes are skipped later
+              var newscene = true;
+
+              //Plays dialogue
+              playLines = setInterval(() => 
+              {
+
+                //Checks if current scene has more in msg
+                if(msg[scene].length != 0)
+                {
+                    //Gets next letter
+                    var letter = msg[scene].substring(0, 1);
+                    //Adds next letter
+                    document.getElementById("dialogueBoxSpecial").innerHTML += letter;
+                    //Removes letter from queue
+                    msg[scene] = msg[scene].substring(1)
+                }
+                else
+                {
+                    //Quits line playing
+                    clearInterval(playLines);
+
+                    //Checks if last scene
+                    if(scene < numOfScenes-1)
+                    { 
+                        //Gives delay then shows the continue option
+                        delay(2500).then(() => {
+
+                            //Adds HTML for continue option
+                            document.getElementById("dialogueBoxSpecial").innerHTML += continuescreen[scene];
+
+                            //Blinks arrow to continue
+                            var blinkContinue = setInterval(function() {
+
+                                //Toggles arrow on and off
+                                $("#continueArrow").fadeToggle(50);
+
+                                //Checks for space press to continue
+                                $(window).keypress(function (e) 
+                                {
+                                    if (e.key === ' ' || e.key === 'Spacebar') 
+                                    {
+                                        e.preventDefault()
+                                        clearInterval(blinkContinue);
+
+                                        //Checks if it is time for a new scene or a new page
+                                        if(newscene)
+                                        {
+                                            //Reset dialogue
+                                            document.getElementById("dialogueBoxSpecial").innerHTML = "";
+                                            //Next scene
+                                            scene++;
+                                            //Load scene
+                                            load();
+
+                                            //Makes sure the scene resets before changing again
+                                            newscene = false;
+                                        }
+                                    }
+                                })
+                            }, 1000);
+                        });
+                    }
+                    else
+                    {
+                        delay(5000).then(() => {
+                            $("#avatar").fadeOut(1000);
+                            delay(1000).then(() => {
+                                $("#dialogueBoxSpecial").fadeOut(1000);
+                                delay(1000).then(() => {
+                                    window.location.replace("end.html");
+                                });
+                            });
+                        });
+                    }
+                }
+              }, 25);
+           }
+
+           function delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+           }
+        </script>
+    </body>
+</html>

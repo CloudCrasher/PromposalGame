@@ -43,6 +43,25 @@
     line-height: 50px;
 }
 
+#dialogueBoxSpecial {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: black;
+    border-radius: 2px;
+    padding: 1.5%; 
+    width: 80%;
+    height: fit-content;
+
+    font-size: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Courier, monospace;
+    font-weight: bold;
+    color: white;
+    line-height: 50px;
+}
+
 #tooltip {
     color: white;
     padding: 0%;
@@ -150,6 +169,26 @@
     left: 35%;
 }
 
+/*Message CSS*/
+#message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: black;
+    border-radius: 2px;
+    padding: 1.5%; 
+    width: fit-content;
+    height: fit-content;
+
+    font-size: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Courier, monospace;
+    font-weight: bold;
+    color: white;
+    line-height: 50px;
+}
+
 
 /*Saber CSS*/
 
@@ -167,6 +206,15 @@
     background-size: 100% 100%;
     margin: 0;
 }
+
+/*Accelerator CSS*/
+#acceleratorBackground {
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0;
+}
+
 
 /*Generic CSS*/
 
