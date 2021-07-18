@@ -19,6 +19,8 @@
             <img id="avatar" src="../assets/saber.png" class="fade">
         </div>
 
+        <img src="../assets/saberPresent.png" id="saberPresent" class="present">
+
         <p id="dialogueBox" class="fade"></p>
 
         <div id="interactBox1" class="interactBox">
@@ -44,6 +46,9 @@
            //Tells when the last dialogue line is
            var numOfScenes = 3;
 
+           //Scene with present in it
+           var presentScene = 1;
+
            //Loads text lines
            function load() 
            {
@@ -53,6 +58,12 @@
               //Plays dialogue
               playLines = setInterval(() => 
               {
+                //Loads present
+                if(scene == presentScene)
+                {
+                    $("#saberPresent").fadeIn(1000);
+                }
+
                 //Checks if current scene has more in msg
                 if(msg[scene].length != 0)
                 {
@@ -94,6 +105,9 @@
                                         //Checks if it is time for a new scene or a new page
                                         if(newscene)
                                         {
+                                            //Unloads present
+                                            $("#saberPresent").fadeOut(1000);
+
                                             //Reset dialogue
                                             document.getElementById("dialogueBox").innerHTML = "";
                                             //Next scene

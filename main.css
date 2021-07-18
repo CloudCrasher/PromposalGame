@@ -139,6 +139,17 @@
     color: white;
 }
 
+/*Present CSS*/
+.present {
+    display: none;
+    position: absolute;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: auto;
+    left: 35%;
+}
+
 
 /*Saber CSS*/
 

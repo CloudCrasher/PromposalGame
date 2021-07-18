@@ -19,6 +19,8 @@
             <img id="avatar" src="../assets/komachi.png" class="fade">
         </div>
 
+        <img src="../assets/komachiPresent.png" id="komachiPresent" class="present">
+
         <p id="dialogueBox" class="fade"></p>
 
         <div id="interactBox1" class="interactBox">
@@ -34,18 +36,17 @@
             <a href="accelerator.html" class="iconText">Start Accelerator Route</a>
         </div>
 
-        <img src="../assets/komachiPresent.png" id="komachiPresent" class="fade">
-
         <script>
            //Holds HTML code for Tooltip and Continue Arrow to be added to the end of dialogue
            var continuescreen = "<p id=\"tooltip\">Press SPACE to continue<i id=\"continueArrow\" class=\"arrow down\"></i></p>";
            //Holds each dialogue line
-           var msg = ["Hihi, Komachi here! I heard it is someone's birthday today (happy birthday!) and dropped by to do my part. Quite the benevolent soul I have~", "Komachi's gift to you is well", "Well it seems Komachi's work is done, and a great job she did! Where to next, Captain?!?"];
+           var msg = ["Hihi, Komachi here! I heard it is someone's birthday today (happy birthday!) and dropped by to do my part. Quite the benevolent soul I have~", "Komachi's gift to you is, well, everyone likes Pan-san right? Even in virtual form, Pan-san makes the perfect gift to someone you care for. If you think Pan-san is a little childish, hopefully you can find some use for it.", "Well it seems Komachi's work here is done, and a great job she did! Where to next, Captain?!?"];
            //Tracks which dialogue line to be displayed
            var scene = 0;
            //Tells when the last dialogue line is
            var numOfScenes = 3;
 
+           //Scene with present in it
            var presentScene = 1;
 
            //Loads text lines
@@ -57,6 +58,8 @@
               //Plays dialogue
               playLines = setInterval(() => 
               {
+
+                //Loads present
                 if(scene == presentScene)
                 {
                     $("#komachiPresent").fadeIn(1000);
@@ -83,11 +86,6 @@
                         //Gives delay then shows the continue option
                         delay(1500).then(() => {
 
-                            if(scene == presentScene)
-                            {
-                                $("#komachiPresent").fadeOut(1000);
-                            }
-
                             //Adds HTML for continue option
                             document.getElementById("dialogueBox").innerHTML += continuescreen;
 
@@ -108,6 +106,9 @@
                                         //Checks if it is time for a new scene or a new page
                                         if(newscene)
                                         {
+                                            //Unloads present
+                                            $("#komachiPresent").fadeOut(1000);
+
                                             //Reset dialogue
                                             document.getElementById("dialogueBox").innerHTML = "";
                                             //Next scene
