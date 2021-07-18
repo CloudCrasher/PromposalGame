@@ -1,0 +1,169 @@
+/*Countdown CSS*/
+
+#blankBackground {
+    background-color: black;
+    margin: 0;
+}
+
+#countdownTimer {
+    margin: 1%;
+    font-size: xx-large;
+    font-family: 'Courier New', Courier, monospace;
+    color: chartreuse;
+}
+
+
+/*Picture CSS*/
+
+#avatar {
+    height: 100%;
+    width: auto;
+}
+
+
+/*Dialogue Box CSS*/
+
+#dialogueBox {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 25px;
+    background-color: pink;
+    border: 5px solid white;
+    padding: 1.5%; 
+    width: 80%;
+    height: fit-content;
+
+    font-size: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Courier, monospace;
+    font-weight: bold;
+    color: white;
+    line-height: 50px;
+}
+
+#tooltip {
+    color: white;
+    padding: 0%;
+    margin: 0%;
+    text-align: right;
+}
+
+.arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 6px;
+    margin: 6px;
+
+    height: max-content;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+
+/*Interact Box CSS*/
+
+.interactBox {
+    display: none;
+    position: absolute;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: auto;
+}
+
+#interactBox1 {
+    left: 30%;
+}
+
+#interactBox2 {
+    left: 50%;
+}
+
+#interactBox3 {
+    left: 70%;
+}
+
+.icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+    width: 80%;
+    border-radius: 25px;
+    border: 5px solid white;
+}
+
+.iconText {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+    border-radius: 25px;
+    background-color: pink;
+    border: 5px solid white;
+    padding: 1.5%; 
+    width: 80%;
+    height: fit-content;
+
+    font-size: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Courier, monospace;
+    font-weight: bold;
+    color: white;
+}
+
+.locked {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+    border-radius: 25px;
+    background-color: gray;
+    border: 5px solid white;
+    padding: 1.5%; 
+    width: 80%;
+    height: fit-content;
+
+    font-size: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Courier, monospace;
+    font-weight: bold;
+    color: white;
+}
+
+
+/*Saber CSS*/
+
+#saberBackground {
+    background-image: url("assets/background.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0;
+}
+
+/*Generic CSS*/
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.fade {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    margin: 3%;
+}

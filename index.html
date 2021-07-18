@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" href="main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <title>Secret Website</title>
+
+        <script>
+            var countDownDate = new Date("Aug 6, 2021 00:00:00").getTime();
+            var counter = setInterval(function() {
+    
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+        
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+                document.getElementById("countdownTimer").innerHTML = days + "D " + hours + "H "
+                + minutes + "M " + seconds + "S";
+
+                $("#countdownTimer").fadeIn();
+                
+                if (distance < 0) 
+                {
+                    clearInterval(counter);
+                    document.getElementById("countdownTimer").style.display = "none";
+                    document.getElementById("enterButton").style.display = "none";
+                    document.getElementById("countdownTimer").innerHTML = "Happy Birthday!";
+                    $("#countdownTimer").fadeIn("slow");
+                    $("#enterButton").fadeIn("slow");
+                }
+            }, 1000);
+        </script>
+
+    </head>
+    <body id="blankBackground">
+
+        <div class="centered">
+            <p id="countdownTimer" class="fade"></p>
+            <input id="enterButton" type="image" src="assets/arrow.png" class="fade">
+        </div>
+
+        <script>
+            $("#enterButton").click(function() {
+                $("#countdownTimer").fadeOut();
+                $("#enterButton").fadeOut();
+                window.location.replace("html/saber0.html");
+            });
+        </script>
+
+    </body>
+</html>
