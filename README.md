@@ -1,2 +1,25 @@
-# CloudCrasher.github.io
-This repository is a personal project of a birthday surprise website. All rights reserved for any media on it, I own very little of the assets used. This project is only public for the intention of hosting it on my GitHub domain, however if for some reason you find yourself looking through it and want to use something or feel something is a breach of copyright, feel free to email me at nicholaskocurek1@gmail.com.
+Find the website at CloudCrasher.github.io
+
+![](https://raw.githubusercontent.com/ncase/door/gh-pages/thumbnail.png)
+
+**Designed & developed by [Nicky Case](http://ncase.me/) in two-ish days.**
+
+Thank you to my playtesters: Amber, Lana, Rio, Sakura.
+
+All code and art dedicated to the public domain. 
+If you'd like to help me keep making free, open-source playable silliness,
+please check out [my Patreon!](http://patreon.com/ncase) Thank you. <3
+
+---
+
+This project was a modification of Nicky Case's original game, modifying the stages and some features to create a Promposal. Huge thank you to the original team for developing this for public domain.
+
+**Asset Credits:**
+
+* Jazz Music: http://www.newgrounds.com/audio/listen/522444 (CC-BY-NC)
+* SFX Error: http://freesound.org/people/Autistic%20Lucario/sounds/142608/ (CC-BY)
+* SFX Step: http://freesound.org/people/Phil25/sounds/208103/ (CC ZERO)
+* SFX Ding: http://freesound.org/people/Aiwha/sounds/196106/ (CC-BY)
+* SFX Rewind: http://freesound.org/people/kasa90/sounds/174363/ (CC ZERO)
+* SFX Unlock: http://freesound.org/people/keweldog/sounds/181140/ (CC ZERO)
+* Social Media Icons: http://customizr.net/icons/
